@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Show Menu</title>
+<style type="text/css">
+	ul{
+        padding: 0;
+        list-style: none;
+        background: #000000;
+		display: inline-block;
+    }
+    ul li{
+        position: relative;
+        text-align: center;
+    }
+    ul li a{
+        
+        color: #00ff00;
+        text-decoration: none;
+    }
+    ul li a:hover{
+		
+        background: #ffffff;
+    }
+    ul li ul.dropdown{
+       
+        display: none;
+        position: absolute;
+  
+    }
+    ul li:hover ul.dropdown{
+        display: block;
+    }
+
+    </style>
+    </head>
+    <body>
+	<ul>
+        <li><a href="#"><b>Justin's Cyber Grill </b></a></li>
+        <li><a href="#">About</a></li>
+         <li> <a href="#">Starters &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#">Fried pickles</a></li>
+                <li><a href="display: inline-block;">Blooming onion</a></li>
+                <li><a href="#">Nachos</a></li>
+          </ul></li>
+ <li> <a href="#">Meals &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="http://www.w3schools.com/">Hamburger</a></li>
+                <li><a href="http://www.w3schools.com/">Chicken</a></li>
+                <li><a href="display: inline-block;">Vegan</a></li>
+          </ul></li>
+
+      <li> <a href="#">Desserts &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="display: inline-block;">Cake</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Pie</a></li>
+          </ul></li>
+        <li><a href="#">Order Online</a></li>
+      
+        
+            
