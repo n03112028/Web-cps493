@@ -1,8 +1,8 @@
 <?php
-
-    
+    var_dump( $_GET );
+    var_dump( $_POST );
+    var_dump( $_REQUEST );
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Log</title>
+    <title>Food Log: Edit</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -19,17 +19,16 @@
   </head>
   <body>
     <div class="container">
+
+        <div class="page-header">
+          <h1>Food Intake <small>Record your daily meals</small></h1>
+        </div>
           <div class='alert alert-warning'>
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             <b>Special Offer</b> Free ice cream today!
           </div> 
-
-        <div class="page-header">
-          <h1>Runs <small>Record your daily intake</small></h1>
-        </div>
-        <!-------------------------------start of form----------------------------------------------------------------->
         <form class="form-horizontal" action="./" method="post" >
           <div class='alert' style="display: none" id="myAlert">
             <button type="button" class="close" aria-label="Close">
@@ -40,19 +39,19 @@
           <div class="form-group">
             <label for="txtName" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal; Name">
+              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="txtCallories">Callories</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCallories" name= "Callories" placeholder="Callories">
+                  <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtDate">When</label>
+            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
             <div class="col-sm-10">
-                  <input type="date" class="form-control" id="Time" placeholder="Date">
+                  <input type="date" class="form-control" id="txtDate" name="Time" placeholder="Date">
             </div>
           </div>
           <div class="form-group">
@@ -75,7 +74,6 @@
                 <span >0</span>% Complete
               </div>
         </div>
-     
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -90,7 +88,7 @@
             var self = this;
             //$(self).css({display: "none"});
             $(self).hide().after("Working...");
-           // $("form").submit();
+            
             var per = 0;
             var interval = setInterval(function(){
               per += 25;
@@ -117,7 +115,7 @@
                 
               }
             }, 200);
-            return false;
+            //return false;
           });
           $(".close").on('click', function(e) {
               $(this).closest(".alert").slideUp()

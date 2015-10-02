@@ -1,5 +1,5 @@
 <?php
-    $name = 'Justin Cody';
+    $name = 'Name of person';
     $message = "Welcome $name";
     
     $person = array( 'Name' => $name, 'Age' => 22, CallorieGoal => 2000 );
@@ -10,10 +10,15 @@
         array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Callories => 400 ),
         array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Callories => 400 ),
         );
+        
+    $food[] = $_REQUEST;
+    
     $total = 0;
     foreach ($food as $meal) {
         $total += $meal['Callories'];
     }
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
