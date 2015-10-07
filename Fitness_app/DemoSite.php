@@ -2,7 +2,7 @@
     $name = 'Name of person';
     $message = "Welcome $name";
     
-    $person = array( 'Name' => $name, 'Age' => 22, CallorieGoal => 2000 );
+    $person = array( 'Name' => $name, 'Age' => 22, CallorieGoal => 2000 ); //test code for future idea
     
     $food = array(
         array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Callories => 400 ),
@@ -11,7 +11,7 @@
         array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Callories => 400 ),
         );
         
-    $food[] = $_REQUEST;
+    //$food[] = $_REQUEST;
     
     $total = 0;
     foreach ($food as $meal) {
@@ -28,17 +28,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Intake</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <style type="text/css">
+  
+           
+            ul
+            {
+            	font-size: 25px;
+                list-style: none;
+            	display: block;
+            	text-align: center;
+            	padding:0;
+            
+            		
+             }
+            ul li
+            {
+                    
+                display: inline-block;
+                position: relative;
+                width: 200px;
+                    
+                     
+            }
+            ul li a
+            {
+                    
+                
+                text-decoration: none;
+            }
+            ul li a:hover
+            {
+            		
+                background: #ffffff;
+                  
+            }
+            ul li ul.dropdown
+            {
+                 
+                display: none;
+                position: absolute;
+              
+            }
+            ul li:hover ul.dropdown
+            {
+                
+                text-align: center;
+                display: block;
+            }
+            p
+            {
+                 text-align:center;   
+            }
+                
+            h1
+            {
+                text-align:center;
+            }
+                
+        
+    </style>
+  
+  
   </head>
   <body>
+      <div class="container">
+  <h1>Justin's Meal Tracker </h1>
+</div>
+
+<div>
+    	<ul>
+         
+            <li><a href="#">About</a></li>
+             <li> <a href="#"> Fitness &#9662;</a>
+                <ul class="dropdown">
+                    <li><a href="DemoSitepg2.html">being worked on</a></li>
+                    <li><a href="display: inline-block;">being worked on</a></li>
+         
+              </ul></li>
+             <li> <a href="#">Meals &#9662;</a>
+                <ul class="dropdown">
+                    <li><a href="DemoSitepg2.html">being worked on</a></li>
+                    <li><a href="DemoSitepg2.html">being worked on</a></li>
+              </ul></li>
+        </ul>
+</div>
     <div class="container">
-            <h1>Food Intake</h1>
-            <h2><?=$message?></h2>
+         
             <div class="panel panel-success">
-                <div class="panel-heading">Your Data</div>
+                <div class="panel-heading"><?=$message?> Your Data</div>
                 <div class="panel-body">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
@@ -54,7 +134,7 @@
             </div>
       <div class="row">
         <div class="col-md-8 col-xs-10">
-            <a href="edit.php" class="btn btn-success">
+            <a href="DemoSite2.html" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus"></i>
                 New Record
             </a>
@@ -75,7 +155,7 @@
               <tbody>
                 <?php foreach($food as $i => $meal): ?>
                 <tr>
-                  <th scope="row"><?=$i?></th>
+                  <th scope="row"><?=$i+1?></th>
                   <td><?=$meal['Name']?></td>
                   <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
                   <td><?=$meal['Callories']?></td>
@@ -85,15 +165,7 @@
             </table>  
           
         </div>
-        <div class="col-md-4 col-xs-10">
-            <div class="alert alert-success" role="alert">
-                You did well
-            </div>
-            <div class="alert alert-danger" role="alert">
-                Oh no! You messed up.
-            </div>
-
-        </div>
+       
       </div>
       
             
