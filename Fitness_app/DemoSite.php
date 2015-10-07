@@ -118,7 +118,7 @@
     <div class="container">
          
             <div class="panel panel-success">
-                <div class="panel-heading"><?=$message?> Your Data</div>
+                <div class="panel-heading"><?=$message?>, This is Your Data</div>
                 <div class="panel-body">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
