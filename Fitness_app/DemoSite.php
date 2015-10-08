@@ -141,7 +141,7 @@
             <a href="#" class="btn btn-danger">
                 <i class="glyphicon glyphicon-trash"></i>
                 Delete All
-                <span class="badge">4</span>
+                <span class="badge"></span>
             </a>
             <table class="table table-condensed table-striped table-bordered table-hover">
               <thead>

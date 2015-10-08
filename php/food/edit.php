@@ -1,7 +1,28 @@
 <?php
-    var_dump( $_GET );
-    var_dump( $_POST );
-    var_dump( $_REQUEST );
+  session_start();
+  $food = $_SESSION['food'];
+  if($_post)
+  {
+    if(isset($_get['id']))
+    {
+      $food[$_get['id']] =$_post;
+    }
+    else{
+      
+    }
+    $food[] = $_Post;
+    $_SESSION['food']=$food;
+    header('Location: ./');  //redirects user after submition    ./ redirects to index page
+    
+  }
+  if($_Get['id'])
+  {
+    $meal = $food[$_Get['id']];
+  }
+  else
+  {
+    $meal = array();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +50,7 @@
             </button>
             <b>Special Offer</b> Free ice cream today!
           </div> 
-        <form class="form-horizontal" action="./" method="post" >
+        <form class="form-horizontal" action="" method="post" >
           <div class='alert' style="display: none" id="myAlert">
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -39,19 +60,19 @@
           <div class="form-group">
             <label for="txtName" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name">
+              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name" value ="<?=$meal['name']?>">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="txtCallories">Callories</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal">
+                  <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal value ="<?=$meal['calories']?>"">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
             <div class="col-sm-10">
-                  <input type="date" class="form-control" id="txtDate" name="Time" placeholder="Date">
+                  <input type="text" class="form-control date" id="txtDate" name="Time" placeholder="Date" value ="<?=$meal['time']?>">
             </div>
           </div>
           <div class="form-group">
@@ -121,7 +142,7 @@
               $(this).closest(".alert").slideUp()
           });
           $("input[type='number']").spinner();
-          $("input[type='date']").datepicker();
+          $("input.date").datepicker();  //input that has class date
         });
       })(jQuery);
     </script>
