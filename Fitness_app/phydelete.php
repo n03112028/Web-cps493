@@ -1,13 +1,13 @@
 <?php
 session_start();
-  $food = $_SESSION['food'];
+  $work = $_SESSION['work'];
   if($_POST){
-    unset($food[$_POST['id']]);
-    $_SESSION['food'] = $food;
-    header('Location: ./');
+    unset($work[$_POST['id']]);
+    $_SESSION['work'] = $food;
+    header('Location: phy.php');
   }
   
-  $meal = $food[$_REQUEST['id']];
+  $works = $work[$_REQUEST['id']];
 ?>
 <!DOCTYPE html>
 <html lang="en">
