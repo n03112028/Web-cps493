@@ -1,22 +1,22 @@
 <?php                
-session_start();
-  $work = $_SESSION['work'];
+ $food = $_SESSION['food'];
   if($_POST){
     if(isset($_GET['id'])){
-      $work[$_GET['id']] = $_POST;
+      $food[$_GET['id']] = $_POST;
     }else{
-      $work[] = $_POST;
+      $food[] = $_POST;
     }
     
-    $_SESSION['work'] = $work;
+    $_SESSION['food'] = $food;
     header('Location: phy.php');
   }
     
   if(isset($_GET['id'])){
-    $work = $work[$_GET['id']];
+    $meal = $food[$_GET['id']];
   }else{
-    $work = array();
+    $meal = array();
   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@ session_start();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   
     <title>Workout Log: Edit</title>
 
     <!-- Bootstrap -->
@@ -71,8 +71,6 @@ session_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript"></script>
   </body>
 </html>
