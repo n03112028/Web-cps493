@@ -3,11 +3,11 @@ session_start();
   $work = $_SESSION['work'];
   if($_POST){
     unset($work[$_POST['id']]);
-    $_SESSION['work'] = $food;
+    $_SESSION['work'] = $work;
     header('Location: phy.php');
   }
   
-  $works = $work[$_REQUEST['id']];
+  $count = $work[$_REQUEST['id']];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +27,14 @@ session_start();
     <div class="container">
 
         <div class="page-header">
-          <h1>Food Intake <small>Delete a meal</small></h1>
+          <h1>Food Intake <small>Delete a Workout</small></h1>
         </div>
         <form class="form-horizontal" action="" method="post" >
           <div class='alert alert-danger alert-block'  id="myAlert">
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h3>Are you sure you want to delete <?=$meal['Name']?></h3>
+            <h3>Are you sure you want to delete <?=$count['did']?></h3>
             <input type="submit" value="Delete" class="btn btn-danger" />
             <input type="hidden" name="id" value="<?=$_REQUEST['id']?>" />
           </div> 

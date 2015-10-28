@@ -1,22 +1,29 @@
 <?php                
- $food = $_SESSION['food'];
-  if($_POST){
-    if(isset($_GET['id'])){
-      $food[$_GET['id']] = $_POST;
-    }else{
-      $food[] = $_POST;
+ session_start();
+  $work = $_SESSION['work'];
+  if($_POST)
+  {
+    if(isset($_GET['id']))
+    {
+      $work[$_GET['id']] = $_POST;
+    }
+    else
+    {
+      $work[] = $_POST;
     }
     
-    $_SESSION['food'] = $food;
+    $_SESSION['work'] = $work;
     header('Location: phy.php');
   }
     
-  if(isset($_GET['id'])){
-    $meal = $food[$_GET['id']];
-  }else{
-    $meal = array();
+  if(isset($_GET['id']))
+  {
+    $count = $work[$_GET['id']];
   }
-
+  else
+  {
+    $count = array();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +61,7 @@
           <div class="form-group">
             <label for="txtName" class="col-sm-2 control-label">Type of Workout</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Fitness activity" value="<?=$meal['Name']?>">
+              <input type="text" class="form-control" id="txtName" name="did" placeholder="Fitness activity" value="<?=$count['did']?>">
             </div>
           </div>
          

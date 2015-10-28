@@ -51,12 +51,12 @@ session_start();
                 </tr>
               </thead>
               <tbody>
-                  <?php foreach($work as $i => $count): ?>
+                  <?php foreach($work as $q => $count): ?>
                 <tr>
                   <th scope="row">
                     <div class="btn-group" role="group" aria-label="...">
-                      <a href="phyedit.php?id=<?=$i?>" title="Edit" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
-                      <a href="phydelete.php?id=<?=$i?>" title="Delete" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+                      <a href="phyedit.php?id=<?=$q?>" title="Edit" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+                      <a href="phydelete.php?id=<?=$q?>" title="Delete" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                     </div>
                   </th>
                   <td><?=$count['did']?></td>

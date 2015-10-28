@@ -6,7 +6,8 @@ session_start();
     $person = array( 'Name' => $name, 'Age' => 22, CallorieGoal => 2000 );
     
     $food = $_SESSION['food'];
-    if(!$food){
+    if(!$food)
+    {
       $_SESSION['food'] = $food = array(
           array( 'Name' => 'Breakfast', Callories => 400 ),
           array( 'Name' => 'Lunch',  Callories => 800 ),
@@ -48,7 +49,7 @@ session_start();
                         <dd><?=$person['Age']?></dd>
                         <dt>Goal</dt>
                         <dd><?=$person['CallorieGoal']?></dd>
-                        <dt>Today's Intake</dt>
+                        <dt>Today's total Intake</dt>
                         <dd><?=$total?></dd>
                     </dl>
                 </div>

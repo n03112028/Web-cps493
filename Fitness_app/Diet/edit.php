@@ -1,20 +1,27 @@
 <?php
 session_start();
   $food = $_SESSION['food'];
-  if($_POST){
-    if(isset($_GET['id'])){
+  if($_POST)
+  {
+    if(isset($_GET['id']))
+    {
       $food[$_GET['id']] = $_POST;
-    }else{
+    }
+    else
+    {
       $food[] = $_POST;
     }
     
     $_SESSION['food'] = $food;
-    header('Location: ./');
+    header('Location: index.php');
   }
     
-  if(isset($_GET['id'])){
+  if(isset($_GET['id']))
+  {
     $meal = $food[$_GET['id']];
-  }else{
+  }
+  else
+  {
     $meal = array();
   }
 ?>
