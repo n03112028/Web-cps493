@@ -1,6 +1,5 @@
 <?php
 session_start();
-
   $food = $_SESSION['food'];
   if($_POST){
     if(isset($_GET['id'])){
@@ -65,12 +64,6 @@ session_start();
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
-            <div class="col-sm-10">
-                  <input type="text" class="form-control date" id="txtDate" name="Time" placeholder="Date"  value="<?=$meal['Time']?>">
-            </div>
-          </div>
-          <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <div class="checkbox">
                 <label>
@@ -97,49 +90,7 @@ session_start();
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript">
-      (function($){
-        $(function(){
-          
-          $("#submit").on('click', function(e){
-            var self = this;
-            //$(self).css({display: "none"});
-            $(self).hide().after("Working...");
-            
-            var per = 0;
-            var interval = setInterval(function(){
-              per += 25;
-              $(".progress-bar").css("width", per + "%");
-              $(".progress-bar span").text(per);
-              if(per >= 100){
-                clearInterval(interval);
-                
-                if( !$("#txtDate").val() ){
-                  $("input").css({ backgroundColor: "#FFAAAA"});
-                  $(self).prop("disabled", false).html("Try Again");
-                  $("#myAlert").removeClass("alert-success").addClass("alert-danger").show()
-                    .find("h3").html("You must enter a date");
-                  toastr.error("You must enter a date");
-                  
-                }else{
-                  // Display success
-                  $("#myAlert").removeClass("alert-danger").addClass("alert-success").show()
-                    .find("h3").html("Yay! You did it.");
-                  toastr.success("Yay! You did it.")
-                  
-                }
-                
-                
-              }
-            }, 200);
-            //return false;
-          });
-          $(".close").on('click', function(e) {
-              $(this).closest(".alert").slideUp()
-          });
-          $("input[type='number']").spinner();
-          $("input.date").datepicker();
-        });
-      })(jQuery);
+     
     </script>
   </body>
 </html>

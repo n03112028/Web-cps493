@@ -1,24 +1,3 @@
-<?php
-session_start();
-
-  $food = $_SESSION['food'];
-  if($_POST){
-    if(isset($_GET['id'])){
-      $food[$_GET['id']] = $_POST;
-    }else{
-      $food[] = $_POST;
-    }
-    
-    $_SESSION['food'] = $food;
-    header('Location: ./');
-  }
-    
-  if(isset($_GET['id'])){
-    $meal = $food[$_GET['id']];
-  }else{
-    $meal = array();
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +5,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Log: Edit</title>
+    <title>Exercise Log</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -35,17 +14,17 @@ session_start();
   </head>
   <body>
     <div class="container">
-
-        <div class="page-header">
-          <h1>Food Intake <small>Record your daily meals</small></h1>
-        </div>
           <div class='alert alert-warning'>
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             <b>Special Offer</b> Free ice cream today!
           </div> 
-        <form class="form-horizontal" action="" method="post" >
+
+        <div class="page-header">
+          <h1>Runs <small>Record your daily run</small></h1>
+        </div>
+        <form class="form-horizontal">
           <div class='alert' style="display: none" id="myAlert">
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -53,21 +32,21 @@ session_start();
             <h3></h3>
           </div> 
           <div class="form-group">
-            <label for="txtName" class="col-sm-2 control-label">Name</label>
+            <label for="txtLocation" class="col-sm-2 control-label">Where</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name" value="<?=$meal['Name']?>">
+              <input type="text" class="form-control" id="txtLocation" placeholder="Location">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtCallories">Callories</label>
+            <label class="col-sm-2 control-label" for="txtLength">How far did you run</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal"  value="<?=$meal['Callories']?>">
+                  <input type="number" class="form-control" id="txtLength" placeholder="Length (meters)">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
+            <label class="col-sm-2 control-label" for="txtDate">When did you run</label>
             <div class="col-sm-10">
-                  <input type="text" class="form-control date" id="txtDate" name="Time" placeholder="Date"  value="<?=$meal['Time']?>">
+                  <input type="date" class="form-control" id="txtDate" placeholder="Date">
             </div>
           </div>
           <div class="form-group">
@@ -81,7 +60,7 @@ session_start();
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-success" id="submit">Record</button>
+              <button type="submit" class="btn btn-success" id="submit">Ka-Ching</button>
             </div>
           </div>
         </form>
@@ -90,6 +69,21 @@ session_start();
                 <span >0</span>% Complete
               </div>
         </div>
+        
+        <h2>Important points about jQuery</h2>
+        <ol>
+            <li>Ready Function</li>
+            <li>Selectors</li>
+            <li>Manipulation
+                <ul>
+                    <li>css</li>
+                    <li>html</li>
+                    <li>appending, deleting, etc.</li>
+                </ul>
+            </li>
+            <li>Events</li>
+            <li>Traversing</li>
+        </ol>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -103,8 +97,7 @@ session_start();
           $("#submit").on('click', function(e){
             var self = this;
             //$(self).css({display: "none"});
-            $(self).hide().after("Working...");
-            
+            $(self).prop("disabled", true).html("Working...");
             var per = 0;
             var interval = setInterval(function(){
               per += 25;
@@ -131,13 +124,13 @@ session_start();
                 
               }
             }, 200);
-            //return false;
+            return false;
           });
           $(".close").on('click', function(e) {
               $(this).closest(".alert").slideUp()
           });
           $("input[type='number']").spinner();
-          $("input.date").datepicker();
+          $("input[type='date']").datepicker();
         });
       })(jQuery);
     </script>
