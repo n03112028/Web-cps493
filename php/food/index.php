@@ -1,6 +1,6 @@
 <?php
 session_start();
-    $name = 'Moshe Plotkin';
+    $name = 'User';
     $message = "Welcome $name";
     
     $person = array( 'Name' => $name, 'Age' => 38, CallorieGoal => 2000 );
