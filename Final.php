@@ -18,7 +18,7 @@ $(function() {
  
     $(".auto").autocomplete({
         source: "web15/Final_Search.php",
-        minLength: 3
+        minLength: 2
     });                
 
 });
