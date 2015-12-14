@@ -13,8 +13,8 @@ $dbname = "C9";
         die("Connection failed: " . $connection -> connect_error);
     }
    
-    $sql = "SELECT country FROM countries";
-    $result = $connection->query($sql);
+    $sql = "SELECT id, country FROM countries";
+    $result = $connection->query($connection,$sql);
     
     if($result->num_rows > 0)
     {
