@@ -4,7 +4,7 @@ date_default_timezone_set("America/New_York");
 
 function GetConnection(){
 	include 'password.php';
-	return new mysqli('localhost','blabla',$sql_password,'c9');
+	return new mysqli('localhost','justin',$sql_password,'C9');
 }
 
 function my_print($x){
@@ -12,6 +12,7 @@ function my_print($x){
 	print_r($x);
 	echo '</pre>';
 }
+
 
 function FetchAll($sql){
 		$ret = array();
